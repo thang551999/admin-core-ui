@@ -27,13 +27,13 @@ const HTTP_STATUS_CONSTANTS = {
 }
 
 const HEADERS = {
-  Accept: '*/*',
-  'Access-Control-Allow-Credentials': true,
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-  Connection: ' keep-alive',
-  'Content-Length': 123,
-  'Content-Type': ' application/json; charset=utf-8',
+  // //Accept: '*/*',
+  // 'Access-Control-Allow-Credentials': true,
+  // 'Access-Control-Allow-Origin': '*',
+  // 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+  // Connection: ' keep-alive',
+  // 'Content-Length': 123,
+  // 'Content-Type': ' application/json; charset=utf-8',
 }
 
 const HEADERS_MULTIPLE_PART = {
@@ -109,7 +109,7 @@ const api = {
   post: (endpoint, params, options) => {
     return axios
       .post(getFullUrl(endpoint), params, {
-        //headers: HEADERS,
+        headers: HEADERS,
         validateStatus: (status) => validate.validateStatus(status),
       })
       .then(

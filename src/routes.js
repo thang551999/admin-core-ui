@@ -5,8 +5,11 @@ const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
 // Base
-const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
-const Breadcrumbs = React.lazy(() => import('./views/base/breadcrumbs/Breadcrumbs'))
+const Place = React.lazy(() => import('./views/pages/place'))
+const AddPlace = React.lazy(() => import('./views/pages/place/add'))
+const Voucher = React.lazy(() => import('./views/pages/place/voucher'))
+const CreateVOucher = React.lazy(() => import('./views/pages/place/voucher/add'))
+
 const Cards = React.lazy(() => import('./views/base/cards/Cards'))
 const Carousels = React.lazy(() => import('./views/base/carousels/Carousels'))
 const Collapses = React.lazy(() => import('./views/base/collapses/Collapses'))
@@ -51,14 +54,20 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const routes = [
+  { path: '/place', name: 'Place', element: Place },
+  { path: '/place/add', name: 'AddPlace', element: AddPlace },
+  { path: '/voucher', name: 'Voucher', element: Voucher },
+  { path: '/voucher/add', name: 'CreateVOucher', element: CreateVOucher },
+
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },
   { path: '/base', name: 'Base', element: Cards, exact: true },
-  { path: '/base/accordion', name: 'Accordion', element: Accordion },
-  { path: '/base/breadcrumbs', name: 'Breadcrumbs', element: Breadcrumbs },
+  { path: '/place', name: 'Place', element: Place },
+  { path: '/place/add', name: 'AddPlace', element: AddPlace },
+  { path: '/base/breadcrumbs', name: 'AddPlace', element: AddPlace },
   { path: '/base/cards', name: 'Cards', element: Cards },
   { path: '/base/carousels', name: 'Carousel', element: Carousels },
   { path: '/base/collapses', name: 'Collapse', element: Collapses },

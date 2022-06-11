@@ -18,13 +18,13 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Quản lý sân',
-    to: '/base',
+    to: '/place',
     icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
         name: 'Quản lý thông tin chung',
-        to: '/base/accordion',
+        to: '/place',
       },
       {
         component: CNavItem,
@@ -39,7 +39,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Quản lý voucher',
-        to: '/base/carousels',
+        to: '/voucher',
       },
     ],
   },

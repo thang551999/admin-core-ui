@@ -18,8 +18,9 @@ import { cilLockLocked, cilUser } from '@coreui/icons'
 import AuthService from '../../../service/auth'
 import { CODE_API_SUCCESS } from '../../../common/constant'
 import { useNavigate } from 'react-router-dom'
-
+import { useDispatch } from 'react-redux'
 const Login = () => {
+  const dispatch = useDispatch()
   let navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -27,11 +28,11 @@ const Login = () => {
     console.log(email, password)
     const data = await AuthService.handleLogin({ email: email, password: password })
     if (data.code === CODE_API_SUCCESS) {
+      dispatch({ type: 'set', loginInfor: data })
       navigate('/')
     } else {
       alert(data.message)
     }
-    console.log(data)
   }
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">

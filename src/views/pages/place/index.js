@@ -12,11 +12,22 @@ import {
   CButton,
 } from '@coreui/react'
 import placeService from '../../../service/place'
-const Accordion = () => {
+
+import { useNavigate } from 'react-router-dom'
+
+const ListPlace = () => {
   const [isLoadingDataDone, setIsLoadingDataDone] = useState(false)
   const [places, setPlaces] = useState([])
   const [totalPage, setTotalPage] = useState(0)
   const [pageCurrent, setPageCurrent] = useState(0)
+
+  let navigate = useNavigate()
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+    navigate('/place/add', { replace: true })
+  }
+
   const getPlaces = async () => {
     const places = await placeService.getPlace()
     await setTimeout(() => {
@@ -34,10 +45,10 @@ const Accordion = () => {
 
   return (
     <>
-      <CButton className="Test" color="info" size="lg">
+      <CButton className="Test" color="info" size="lg" onClick={handleSubmit}>
         Tạo sân thể thao
       </CButton>
-      <CTable>
+      <CTable style={{ position: 'relative' }}>
         <CTableHead color="dark">
           <CTableRow>
             <CTableHeaderCell scope="col">#</CTableHeaderCell>
@@ -50,7 +61,14 @@ const Accordion = () => {
           </CTableRow>
         </CTableHead>
         {!isLoadingDataDone ? (
-          <CSpinner></CSpinner>
+          <CSpinner
+            style={{
+              position: 'absolute',
+              top: '120%',
+              left: '50%',
+              //transform: 'translate(-50%, -50%)',
+            }}
+          ></CSpinner>
         ) : (
           <CTableBody>
             {places.map((place, index) => {
@@ -85,4 +103,4 @@ const Accordion = () => {
   )
 }
 
-export default Accordion
+export default ListPlace

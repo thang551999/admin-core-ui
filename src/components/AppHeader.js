@@ -32,9 +32,10 @@ const AppHeader = () => {
           <CIcon icon={cilMenu} size="lg" />
         </CHeaderToggler>
         <CHeaderBrand className="mx-auto d-md-none" to="/">
-          <CIcon icon={logo} height={48} alt="Logo" />
+          {/* <CIcon icon={logo} height={48} alt="Logo" /> */}
         </CHeaderBrand>
-        <CHeaderNav>
+        <AppHeaderDropdown />
+        {/* <CHeaderNav>
           <CNavItem>
             <CNavLink href="#">
               <CIcon icon={cilBell} size="lg" />
@@ -50,15 +51,15 @@ const AppHeader = () => {
               <CIcon icon={cilEnvelopeOpen} size="lg" />
             </CNavLink>
           </CNavItem>
-        </CHeaderNav>
-        <CHeaderNav className="ms-3">
-          <AppHeaderDropdown />
-        </CHeaderNav>
+        </CHeaderNav> */}
+        {/* <CHeaderNav className="ms-3">
+          // <AppHeaderDropdown />
+        </CHeaderNav> */}
       </CContainer>
-      <CHeaderDivider />
-      <CContainer fluid>
+      {/* <CHeaderDivider /> */}
+      {/* <CContainer fluid>
         <AppBreadcrumb />
-      </CContainer>
+      </CContainer> */}
     </CHeader>
   )
 }
